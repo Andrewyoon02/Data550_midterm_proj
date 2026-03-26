@@ -1,0 +1,62 @@
+---
+title: "Premier League 2020 Player Performance: Exploratory Analysis"
+author: "Andrew Yoon"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    df_print: paged
+---
+```{r, here-i-am, include = FALSE}
+here::i_am("Data550_proj.Rmd")
+```
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE
+)
+
+library(tidyverse)
+library(knitr)
+library(readr)
+library(janitor)
+library(gtsummary)
+```
+
+## Introduction
+This report analyzes the **All Time Premier League Player Statistics** dataset of all player in the 2019/2020 season. There are 571 unique observations (rows; players) with 59 variables (columns). The dataset consists of a comprehensive list of attributes of various soccer players including their demographics (age and nationality), professional details (club, position, and appearances), and extensive "offensive" and "defensive" performance metrics (goals, assists, shots, passing, defensive stats, and goalkeeping stats). In addition, there are several variables that may only apply to certain positions. 
+
+### Analysis Objectives:
+
+* To identify and summarize distribution of key performance variables (goals, assists, appearances).
+* To fit a regression model to predict goal contribution (goals + assists).
+* To visualize and understand key skills and attributes of players. 
+
+## Table
+```{r, table}
+table_pos <- readRDS(
+  file = here::here("output/table_pos.rds")
+)
+
+#| tab.cap = "Premier League 2020: Average Performance by Position"
+knitr::kable(
+  table_pos,
+  caption = "Premier League 2020: Average Performance by Position",
+  digits = 2,
+  col.names = c("Position", "N", "Mean apps", "Mean goals", "Mean assists", "Mean (G+A)")
+)
+```
+
+This table summarizes player performance by position. All players are grouped into their position (GK, Defender, Midfielder, Forward). A new variable was created to calculate the total number of goals and assists provided by a player: goal contribution. For each position, the average number of appearances, goals, assists, and goal contribution (goals + assists) were calculated. In addition, the total number of players in each position was included. 
+
+## Visualization
+```{r, scatterplot}
+#| fig.cap = "Goal Contribution vs Appearances by Position"
+knitr::include_graphics(
+  here::here("output/figure_scatter.png")
+)
+```
+
+These four scatterplots displays the relationship between the number appearances and goal contribution (goals + assists) by position. Each scatterplot represents a different position with a line of best fit to show the trend of goal contribution by position. Forwards tend to have a higher goal contribution over similar number of appearances compared to the other positions. 
