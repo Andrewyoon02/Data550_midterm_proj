@@ -44,6 +44,17 @@ of the table and figure.
 - has a set of "rules" and designated commands to run the full repository without 
 having to separately run each file. 
 
+## Package environment setup
+
+This project uses `renv` to manage package versions.
+
+To restore the project package environment, run:
+
+`make install`
+
+in the terminal.
+
+
 ## Generating the Final Report
 
 Make sure you have R and the required packages installed (`tidyverse`, `janitor`,
