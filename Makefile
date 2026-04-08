@@ -17,3 +17,6 @@ output/prem_clean.rds: code/01_clean_data.R Prem_2020.csv
 .PHONY: clean
 clean:
 	rm -f output/prem_clean.rds output/table_pos.rds output/figure_scatter.png Data550_proj.html
+	
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
