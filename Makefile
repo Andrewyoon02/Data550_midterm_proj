@@ -29,3 +29,10 @@ docker-report:
 		-v "$$(pwd)/report:/project/report" \
 		andrewyoon02/data550-project \
 		bash -lc "make clean && make && cp Data550_proj.html report/"
+
+docker-report-windows:
+	mkdir -p report
+	docker run --rm \
+		-v "/$$(pwd)/report:/project/report" \
+		yourdockerhubusername/data550-project \
+		bash -lc "make clean && make && cp Data550_proj.html report/"
