@@ -1,9 +1,9 @@
 library(tidyverse)
 library(here)
 
-here::i_am("code/03_figure.R")
+here::i_am("Code/03_figure.R")
 
-prem_clean <- readRDS(here("output", "prem_clean.rds"))
+prem_clean <- readRDS(here("Output", "prem_clean.rds"))
 
 # Scatterplot by position to check linear relationship
 p <- prem_clean %>%
@@ -26,4 +26,4 @@ p <- prem_clean %>%
     title = "Goal Contribution vs Appearances by Position"
   )
 
-ggsave(here("output", "figure_scatter.png"), plot = p, width = 8, height = 6, dpi = 150)
+ggsave(here("Output", "figure_scatter.png"), plot = p, width = 8, height = 6, dpi = 150)

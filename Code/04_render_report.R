@@ -1,7 +1,7 @@
 library(rmarkdown)
 library(here)
 
-here::i_am("code/04_render_report.R")
+here::i_am("Code/04_render_report.R")
 
 render(
   input = here::here("Data550_proj.Rmd"),

@@ -37,7 +37,7 @@ This report analyzes the **All Time Premier League Player Statistics** dataset o
 ## Table
 ```{r, table}
 table_pos <- readRDS(
-  file = here::here("output/table_pos.rds")
+  file = here::here("Output/table_pos.rds")
 )
 
 #| tab.cap = "Premier League 2020: Average Performance by Position"
@@ -55,7 +55,7 @@ This table summarizes player performance by position. All players are grouped in
 ```{r, scatterplot}
 #| fig.cap = "Goal Contribution vs Appearances by Position"
 knitr::include_graphics(
-  here::here("output/figure_scatter.png")
+  here::here("Output/figure_scatter.png")
 )
 ```
 

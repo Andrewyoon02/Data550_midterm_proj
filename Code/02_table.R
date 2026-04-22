@@ -2,9 +2,9 @@ library(tidyverse)
 library(knitr)
 library(here)
 
-here::i_am("code/02_table.R")
+here::i_am("Code/02_table.R")
 
-prem_clean <- readRDS(here("output", "prem_clean.rds"))
+prem_clean <- readRDS(here("Output", "prem_clean.rds"))
 
 ## Table
 table_pos <- prem_clean %>%
@@ -27,4 +27,4 @@ knitr::kable(
   col.names = c("Position", "N", "Mean apps", "Mean goals", "Mean assists", "Mean (G+A)")
 )
 
-saveRDS(table_pos, here("output", "table_pos.rds"))
+saveRDS(table_pos, here("Output", "table_pos.rds"))
