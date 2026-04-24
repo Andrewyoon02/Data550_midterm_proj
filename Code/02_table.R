@@ -4,6 +4,8 @@ library(here)
 
 here::i_am("Code/02_table.R")
 
+dir.create(here("Output"), showWarnings = FALSE)
+
 prem_clean <- readRDS(here("Output", "prem_clean.rds"))
 
 ## Table
@@ -19,12 +21,5 @@ table_pos <- prem_clean %>%
     .groups = "drop"
   ) %>%
   arrange(desc(mean_g_a))
-
-knitr::kable(
-  table_pos,
-  caption = "Premier League 2020: Average Performance by Position",
-  digits = 2,
-  col.names = c("Position", "N", "Mean apps", "Mean goals", "Mean assists", "Mean (G+A)")
-)
 
 saveRDS(table_pos, here("Output", "table_pos.rds"))

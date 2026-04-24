@@ -1,10 +1,33 @@
-.Rproj.user
+# Mac/system files
+.DS_Store
+**/.DS_Store
+__MACOSX/
+
+# R/RStudio session files
 .Rhistory
 .RData
 .Ruserdata
-.DS_Store
-Data550_proj.html
-README.html
-Output/*.rds
-Output/*.png
+.Rproj.user/
+
+# Generated outputs
+Output/
+output/
 report/
+*.html
+*.pdf
+*.docx
+*.log
+*.aux
+*.toc
+*.out
+
+# Local renv library and cache artifacts
+renv/library/
+renv/staging/
+renv/python/
+renv/sandbox/
+
+# Keep renv 
+!renv/settings.json
+!renv/activate.R
+!renv.lock

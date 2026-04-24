@@ -4,9 +4,10 @@ library(here)
 
 here::i_am("Code/01_clean_data.R")
 
+dir.create(here("Output"), showWarnings = FALSE)
+
 # Read & open dataset
 prem_20 <- read_csv(here("Prem_2020.csv"))
-head(prem_20)
 
 # Clean all variable names + create new variable
 prem_clean <- prem_20 %>%
@@ -20,7 +21,8 @@ total_missing <- sum(is.na(prem_clean))
 total_missing
 
 # Missing values by column
+total_missing <- sum(is.na(prem_clean))
 missing_by_column <- colSums(is.na(prem_clean))
-missing_by_column
 
-head(prem_clean)
+print(total_missing)
+print(missing_by_column)
